@@ -3,6 +3,10 @@ import React from "react";
 import loginLottie from "../Login/kitchen.json";
 
 const Login = () => {
+  const handleLogin = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
@@ -14,7 +18,7 @@ const Login = () => {
             <h1 className="text-5xl text-primary text-center font-bold">
               Login now!
             </h1>
-            <div className="card-body">
+            <form onSubmit={handleLogin} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -47,7 +51,7 @@ const Login = () => {
                   value="Login"
                 />
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
