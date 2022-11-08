@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
+import "./Header.css";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import logo from "../../asset/logo/awesomely-eating-logo.png";
+import { AuthContext } from "../../Context/UserContext";
 
 const Header = () => {
+  const { user, logout } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logout()
+      .then(() => {
+        toast.success("successfully logout", { autoClose: 800 });
+      })
+
+      .catch((error) => console.log(error));
+  };
+
   return (
     <div className="bg-orange-100">
       <div className="navbar max-w-screen-xl mx-auto ">
@@ -52,8 +66,19 @@ const Header = () => {
             </li>
           </ul>
         </div>
-        <div className="navbar-end">
-          <Link to="/login">Login</Link>
+        <div className="right_menu navbar-end">
+          {user?.uid ? (
+            <>
+              <Link to="/myReviews">My Reviews</Link>
+              <Link to="/addService">Add Service</Link>
+              <Link onClick={handleLogout}>Log out</Link>
+            </>
+          ) : (
+            <>
+              <Link to="/login">Login</Link>
+              <Link to="/signup">Sign Up</Link>
+            </>
+          )}
         </div>
       </div>
     </div>
