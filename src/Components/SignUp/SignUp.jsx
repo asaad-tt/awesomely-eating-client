@@ -1,12 +1,18 @@
 import React, { useContext } from "react";
 import Lottie from "lottie-react";
 import cooking from "../SignUp/cooking.json";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/UserContext";
 import { toast } from "react-toastify";
+import { FaGoogle } from "react-icons/fa";
 
 const SignUp = () => {
-  const { createUser, updateName } = useContext(AuthContext);
+  const { createUser, updateName, signInWithGoogle } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
   const handleSignUP = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -28,6 +34,18 @@ const SignUp = () => {
             toast.error(error.message);
           });
         form.reset();
+        navigate(from, { replace: true });
+      })
+      .catch((error) => console.error(error));
+  };
+
+  const handleGoogleSign = () => {
+    signInWithGoogle()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast.info("login success", { autoClose: 800 });
+        navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));
   };
@@ -86,6 +104,17 @@ const SignUp = () => {
                 />
               </div>
             </form>
+            <p className="text-center">login with social account</p>
+
+            <p className="text-center w-full py-3">
+              <button onClick={handleGoogleSign} className="btn  btn-primary ">
+                {" "}
+                <span className="mr-2">
+                  <FaGoogle></FaGoogle>
+                </span>{" "}
+                google
+              </button>
+            </p>
             <p className="text-center pb-5 ">
               Already have an account?{" "}
               <Link className="text-primary font-bold" to="/login">

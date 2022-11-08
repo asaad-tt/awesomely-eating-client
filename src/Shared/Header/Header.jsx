@@ -1,17 +1,19 @@
 import React, { useContext } from "react";
 import "./Header.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import logo from "../../asset/logo/awesomely-eating-logo.png";
 import { AuthContext } from "../../Context/UserContext";
 
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     logout()
       .then(() => {
         toast.success("successfully logout", { autoClose: 800 });
+        navigate("/login");
       })
 
       .catch((error) => console.log(error));
