@@ -1,17 +1,59 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
+import { AuthContext } from "../../../Context/UserContext";
+import AllReviews from "../../AllReviews/AllReviews";
 
 const ServiceDetails = () => {
   const service = useLoaderData();
-  const { title, img, price, description } = service;
+  const { _id, title, img, price, description } = service;
+  const { user } = useContext(AuthContext);
+  const { displayName, email, uid, photoURL } = user;
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const text = form.text.value;
+    console.log(text);
+
+    const review = {
+      service: _id,
+      serviceName: title,
+      userName: displayName,
+      email,
+      uid,
+      text,
+      photoURL,
+    };
+
+    // get review
+
+    // create review
+    fetch("http://localhost:5000/reviews", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(review),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          alert("Order placed successfully");
+          form.reset();
+        }
+      })
+      .catch((er) => console.error(er));
+  };
+
   return (
     <div className="max-w-screen-xl mx-auto py-10">
       <h3 className="text-3xl text-primary text-center font-semibold py-10">
         your satisfaction is our main priority{" "}
       </h3>
-      <div className="grid grid-cols-1 lg:grid-cols-2 ">
+      <div className="grid gap-5 grid-cols-1 lg:grid-cols-2 ">
         <div>
           <div className="card card-compact w-full bg-base-100 shadow-xl">
             <figure>
@@ -33,7 +75,24 @@ const ServiceDetails = () => {
             </div>
           </div>
         </div>
-        <div></div>
+        <div>
+          <h3>add your valuable review </h3>
+          <form onSubmit={handleSubmit}>
+            <textarea
+              className="textarea w-full textarea-success"
+              name="text"
+              placeholder="make a comment"
+            ></textarea>
+            <input
+              type="submit"
+              className="btn btn-primary"
+              value="add review"
+            />
+          </form>
+          <div>
+            <AllReviews></AllReviews>
+          </div>
+        </div>
       </div>
     </div>
   );
