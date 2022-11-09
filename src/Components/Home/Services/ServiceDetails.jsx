@@ -18,9 +18,10 @@ const ServiceDetails = () => {
     console.log(text);
 
     const review = {
-      service: _id,
+      serviceId: _id,
       serviceName: title,
       userName: displayName,
+      serviceImage: img,
       email,
       uid,
       text,
