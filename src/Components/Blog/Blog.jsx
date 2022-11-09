@@ -56,7 +56,17 @@ const Blog = () => {
               between two parties .Jwt is used only for authorization purpose
               not authentication. <br />
               JWT works can describe in few step <br />
-              1.
+              1. Client login with username and password <br />
+              2. Server creates a token for the client <br />
+              3. server sends a token to the client <br />
+              4. Client stores the token on either local storage or browser
+              cookie <br />
+              5. Next time the client makes a request, a copy of the token is
+              send to the server for authorization. <br />
+              6. Server verifies the JWT signature before giving the
+              authorization. <br />
+              7. Server responds to the client's request. <br />
+              basically this way JWT works
             </p>
           </div>
         </div>
@@ -73,9 +83,17 @@ const Blog = () => {
               What is the difference between javascript and NodeJS?
             </h1>
             <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+              JavaScript is a simple programming language that can be used with
+              any browser that has the JavaScript Engine installed. Node.js, on
+              the other hand, is an interpreter or execution environment for the
+              JavaScript programming language.we can all java script run time.
+              It requires libraries that can be conveniently accessed from
+              JavaScript programming to be more helpful. <br />
+              Any engine may run JavaScript. As a result, writing JavaScript is
+              incredibly easy, and any working environment is similar to a
+              complete browser. Node.js, on the other hand, only enables the V8
+              engine. Written JavaScript code, on the other hand, can run in any
+              context, regardless of whether the V8 engine is supported.
             </p>
           </div>
         </div>
@@ -92,9 +110,16 @@ const Blog = () => {
               How does NodeJS handle multiple requests at the same time?
             </h1>
             <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+              NodeJS receives multiple client requests and places them into
+              EventQueue. NodeJS is built with the concept of event-driven
+              architecture. NodeJS has its own EventLoop which is an infinite
+              loop that receives requests and processes them. EventLoop is the
+              listener for the EventQueue. <br />
+              If NodeJS can process the request without I/O blocking then the
+              event loop would itself process the request and sends the response
+              back to the client by itself. But, it is possible to process
+              multiple requests parallelly using the NodeJS cluster module or
+              worker_threads module.
             </p>
           </div>
         </div>
