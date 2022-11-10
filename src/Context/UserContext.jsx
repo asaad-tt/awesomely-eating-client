@@ -48,6 +48,7 @@ const UserContext = ({ children }) => {
   //  logout
   const logout = () => {
     setLoading(true);
+    localStorage.removeItem("awesomely-token");
     return signOut(auth);
   };
 

@@ -6,7 +6,7 @@ const AllReviews = () => {
   const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("https://awesomely-eating-server.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => {
         setRefresh(!refresh);

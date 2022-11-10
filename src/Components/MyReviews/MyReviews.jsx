@@ -5,21 +5,33 @@ import useTitle from "../../Hooks/useTitle";
 import PersonalReview from "./PersonalReview";
 
 const MyReviews = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
 
   useTitle("My reviews");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myReviews?email=${user?.email}`)
-      .then((res) => res.json())
+    fetch(
+      `https://awesomely-eating-server.vercel.app/myReviews?email=${user?.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("awesomely-token")}`,
+        },
+      }
+    )
+      .then((res) => {
+        if (res.status === 401 || res.status === 403) {
+          return logout();
+        }
+        return res.json();
+      })
       .then((data) => setReviews(data));
-  }, [user?.email]);
+  }, [user?.email, logout]);
 
   const handleDelete = (id) => {
     const proceed = window.confirm("you want to delete?");
     if (proceed) {
-      fetch(`http://localhost:5000/myReviews/${id}`, {
+      fetch(`https://awesomely-eating-server.vercel.app/myReviews/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

@@ -9,7 +9,6 @@ const ServiceDetails = () => {
   const service = useLoaderData();
   const { _id, title, img, price, description } = service;
   const { user } = useContext(AuthContext);
-  const { displayName, email, uid, photoURL } = user;
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -20,18 +19,18 @@ const ServiceDetails = () => {
     const review = {
       serviceId: _id,
       serviceName: title,
-      userName: displayName,
+      userName: user?.displayName,
       serviceImage: img,
-      email,
-      uid,
+      email: user?.email,
+      uid: user?.uid,
       text,
-      photoURL,
+      photoURL: user?.photoURL,
     };
 
     // get review
 
     // create review
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://awesomely-eating-server.vercel.app/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

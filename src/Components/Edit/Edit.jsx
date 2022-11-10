@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -11,7 +11,7 @@ const Edit = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myReviews/${id}`)
+    fetch(`https://awesomely-eating-server.vercel.app/myReviews/${id}`)
       .then((res) => res.json())
       .then((data) => setReview(data));
   }, [id]);
@@ -26,7 +26,7 @@ const Edit = () => {
     };
     console.log(review);
 
-    fetch(`http://localhost:5000/myReviews/${id}`, {
+    fetch(`https://awesomely-eating-server.vercel.app/myReviews/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

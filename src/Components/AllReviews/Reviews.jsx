@@ -23,7 +23,9 @@ const Reviews = ({ review }) => {
               </div>
             </div>
             <div>
-              <div className="font-bold">{userName}</div>
+              <div className="font-bold">
+                {review?.userName ? userName : <p>no name</p>}
+              </div>
               <div className="text-sm opacity-50">{email}</div>
             </div>
           </div>
