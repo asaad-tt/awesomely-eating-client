@@ -14,6 +14,7 @@ Project Live Link: https://awesomely-eating.web.app/
 ** I stored data in mongodb database and from there i use data as my necessity.
 ** I also use react photo view , which make a photo a full screen size after click
 ** i make a blog route , there i answered some important Question about database, programming language etc..
+\*\* After completing the project i deploy the client side to the firebase and backend site to vercel.
 
 # Getting Started with Create React App
 
