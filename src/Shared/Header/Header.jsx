@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "./Header.css";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import logo from "../../asset/logo/awesomely-eating-logo.png";
+import logo from "../../asset/logo/ae_logo.png";
 import { AuthContext } from "../../Context/UserContext";
 
 const Header = () => {
@@ -20,11 +20,11 @@ const Header = () => {
   };
 
   return (
-    <div className="bg-orange-100">
+    <div className="bg-slate-800">
       <div className="navbar max-w-screen-xl mx-auto ">
         <div className="navbar-start">
           <div className="dropdown">
-            <label tabIndex={0} className="btn btn-ghost lg:hidden">
+            <label tabIndex={0} className="btn btn-primary lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -42,7 +42,7 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-slate-800 rounded-box w-52"
             >
               <li>
                 <Link to="/">Home</Link>
@@ -50,6 +50,9 @@ const Header = () => {
 
               <li>
                 <Link to="/blog">Blog</Link>
+              </li>
+              <li>
+                <Link to="/services">Services</Link>
               </li>
             </ul>
           </div>
