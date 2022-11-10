@@ -66,6 +66,9 @@ const Header = () => {
             <li>
               <Link to="/blog">Blog</Link>
             </li>
+            <li>
+              <Link to="/services">Services</Link>
+            </li>
           </ul>
         </div>
         <div className="right_menu navbar-end">

@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
+import useTitle from "../../../Hooks/useTitle";
 import AllServices from "./AllServices";
 
 const Services = () => {
   const [services, setServices] = useState([]);
+
+  useTitle("Services");
+
   useEffect(() => {
     fetch("https://awesomely-eating-server.vercel.app/services")
       .then((res) => res.json())

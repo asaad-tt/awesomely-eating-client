@@ -3,8 +3,11 @@ import img1 from "../../asset/blog/SQL-Vs-NoSQL1.png";
 import img2 from "../../asset/blog/jwt.jpeg";
 import img3 from "../../asset/blog/nodejsvsjavascript.jpg";
 import img4 from "../../asset/blog/node.png";
+import useTitle from "../../Hooks/useTitle";
 
 const Blog = () => {
+  useTitle("Blog");
+
   return (
     <div className="from-amber-900">
       <div className="hero bg-base-200">
