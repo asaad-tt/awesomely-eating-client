@@ -10,13 +10,13 @@ const BannerItem = ({ slide }) => {
         <img src={image} alt="" className="w-full h-full" />
       </div>
       <div className="absolute flex justify-end transform -translate-y-1/2 left-24 top-1/4">
-        <h1 className="text-6xl font-bold text-white">
+        <h1 className="text-5xl  banner_title font-bold text-white">
           Its awesome eating delicious <br />
           Homemade food
         </h1>
       </div>
       <div className="absolute flex justify-end transform -translate-y-1/2 w-2/5 left-24 mt-20 top-1/3">
-        <p className="text-xl text-white">
+        <p className="text-xl banner_text text-white">
           We provide original homemade food. since 2015 we are available in the
           market with honesty and our value . we always want people get the
           taste of food , And we are so happy that our client feel so good about
@@ -26,7 +26,9 @@ const BannerItem = ({ slide }) => {
       <div className="absolute flex justify-start transform -translate-y-1/2 w-2/5 left-24 top-2/3">
         <Link to="/services">
           {" "}
-          <button className="btn btn-warning mb-20 mr-5">Get your meal</button>
+          <button className="btn banner_btn btn-warning mb-20 mr-5">
+            Get your meal
+          </button>
         </Link>
       </div>
       <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">

@@ -25,15 +25,6 @@ const AllReviews = () => {
     <div>
       <div className="overflow-x-auto w-full">
         <table className="table w-full">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
-              <th></th>
-            </tr>
-          </thead>
           <tbody>
             {reviews.map((review) => (
               <Reviews key={review._id} review={review}></Reviews>

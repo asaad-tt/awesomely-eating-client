@@ -9,3 +9,28 @@
   display: inline-block;
   background: linear-gradient(to right, #151515 0%, rgb(142, 68, 173, 0.3));
 }
+
+@media only screen and (max-width: 930px) {
+  .banner_title {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .banner_text {
+    margin-top: 20px;
+  }
+  .banner_btn {
+    margin-top: 50px;
+  }
+}
+@media only screen and (max-width: 778px) {
+  .banner_text {
+    margin-top: 20px;
+    font-size: 16px;
+  }
+  .banner_btn {
+    display: none;
+  }
+}
