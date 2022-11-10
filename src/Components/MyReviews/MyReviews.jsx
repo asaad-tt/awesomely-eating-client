@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/UserContext";
 import useTitle from "../../Hooks/useTitle";
 import PersonalReview from "./PersonalReview";
+import "./MyReviews.css";
 
 const MyReviews = () => {
   const { user, logout } = useContext(AuthContext);
@@ -53,16 +54,24 @@ const MyReviews = () => {
 
   return (
     <div className="max-w-screen-xl mx-auto py-10">
-      <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4">
-        {reviews.map((singleReview) => (
-          <PersonalReview
-            key={singleReview._id}
-            singleReview={singleReview}
-            handleDelete={handleDelete}
-            handleEdit={handleEdit}
-          ></PersonalReview>
-        ))}
-      </div>
+      {reviews.length ? (
+        <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4">
+          {reviews.map((singleReview) => (
+            <PersonalReview
+              key={singleReview._id}
+              singleReview={singleReview}
+              handleDelete={handleDelete}
+              handleEdit={handleEdit}
+            ></PersonalReview>
+          ))}
+        </div>
+      ) : (
+        <div className="flex no_review justify-center items-center">
+          <h1 className="text-3xl font-bold text-primary">
+            No reviews were added{" "}
+          </h1>
+        </div>
+      )}
     </div>
   );
 };

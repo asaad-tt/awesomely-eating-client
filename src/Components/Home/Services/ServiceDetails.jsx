@@ -1,9 +1,15 @@
 import React, { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import {
+  Link,
+  useLoaderData,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import { AuthContext } from "../../../Context/UserContext";
 import AllReviews from "../../AllReviews/AllReviews";
+import { toast } from "react-toastify";
 
 const ServiceDetails = () => {
   const service = useLoaderData();
@@ -41,7 +47,8 @@ const ServiceDetails = () => {
       .then((data) => {
         console.log(data);
         if (data.acknowledged) {
-          alert("Order placed successfully");
+          toast.success("Order placed successfully", { autoClose: 800 });
+
           form.reset();
         }
       })
@@ -76,19 +83,33 @@ const ServiceDetails = () => {
           </div>
         </div>
         <div>
-          <h3>add your valuable review </h3>
-          <form onSubmit={handleSubmit}>
-            <textarea
-              className="textarea w-full textarea-success"
-              name="text"
-              placeholder="make a comment"
-            ></textarea>
-            <input
-              type="submit"
-              className="btn btn-primary"
-              value="add review"
-            />
-          </form>
+          <h3 className="text-3xl mb-5 font-semibold text-center">
+            Add your valuable review{" "}
+          </h3>
+          {user?.email ? (
+            <form onSubmit={handleSubmit}>
+              <textarea
+                className="textarea w-full textarea-success"
+                name="text"
+                placeholder="make a comment"
+              ></textarea>
+              <input
+                type="submit"
+                className="btn btn-primary"
+                value="add review"
+              />
+            </form>
+          ) : (
+            <p className="text-2xl text-center">
+              Please{" "}
+              <span className="mr-1">
+                <Link to="/login" className="font-semibold text-primary ">
+                  Login
+                </Link>
+              </span>
+              first to give your review
+            </p>
+          )}
           <div>
             <AllReviews></AllReviews>
           </div>
