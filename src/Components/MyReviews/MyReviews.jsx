@@ -4,6 +4,7 @@ import { AuthContext } from "../../Context/UserContext";
 import useTitle from "../../Hooks/useTitle";
 import PersonalReview from "./PersonalReview";
 import "./MyReviews.css";
+import { toast } from "react-toastify";
 
 const MyReviews = () => {
   const { user, logout } = useContext(AuthContext);
@@ -39,7 +40,8 @@ const MyReviews = () => {
         .then((data) => {
           console.log(data);
           if (data.deletedCount > 0) {
-            alert("deleted successfully");
+            toast.info("deleted successfully", { autoClose: 800 });
+            // alert("deleted successfully");
             const remaining = reviews.filter((review) => review._id !== id);
             setReviews(remaining);
           }

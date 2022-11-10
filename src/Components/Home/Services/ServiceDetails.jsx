@@ -1,10 +1,5 @@
 import React, { useContext } from "react";
-import {
-  Link,
-  useLoaderData,
-  useLocation,
-  useNavigate,
-} from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import { AuthContext } from "../../../Context/UserContext";
@@ -47,7 +42,7 @@ const ServiceDetails = () => {
       .then((data) => {
         console.log(data);
         if (data.acknowledged) {
-          toast.success("Order placed successfully", { autoClose: 800 });
+          toast.success("Review added successfully", { autoClose: 800 });
 
           form.reset();
         }
