@@ -1,6 +1,6 @@
 import React from "react";
 
-const PersonalReview = ({ singleReview, handleDelete }) => {
+const PersonalReview = ({ singleReview, handleDelete, handleEdit }) => {
   console.log(singleReview);
 
   const { _id, userName, serviceName, text, serviceImage } = singleReview;
@@ -17,13 +17,18 @@ const PersonalReview = ({ singleReview, handleDelete }) => {
             <span className="font-semibold">my review:</span> {text}
           </p>
           <div className="card-actions justify-end">
-            <div className="badge badge-outline">Edit</div>
-            <div
+            <button
+              onClick={() => handleEdit(_id)}
+              className="badge badge-outline"
+            >
+              Edit
+            </button>
+            <button
               onClick={() => handleDelete(_id)}
               className="badge badge-outline"
             >
               Delete
-            </div>
+            </button>
           </div>
         </div>
       </div>

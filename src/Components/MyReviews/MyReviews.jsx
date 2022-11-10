@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/UserContext";
 import PersonalReview from "./PersonalReview";
 
@@ -7,10 +8,10 @@ const MyReviews = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myReviews?email=${user.email}`)
+    fetch(`http://localhost:5000/myReviews?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
-  }, [user.email]);
+  }, [user?.email]);
 
   const handleDelete = (id) => {
     const proceed = window.confirm("you want to delete?");
@@ -30,6 +31,11 @@ const MyReviews = () => {
     }
   };
 
+  const navigate = useNavigate();
+  const handleEdit = (id) => {
+    navigate(`/edit/${id}`);
+  };
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4">
       {reviews.map((singleReview) => (
@@ -37,6 +43,7 @@ const MyReviews = () => {
           key={singleReview._id}
           singleReview={singleReview}
           handleDelete={handleDelete}
+          handleEdit={handleEdit}
         ></PersonalReview>
       ))}
     </div>

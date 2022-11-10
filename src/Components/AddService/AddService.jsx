@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../Context/UserContext";
 
 const AddService = () => {
   const { user } = useContext(AuthContext);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -32,10 +34,11 @@ const AddService = () => {
       .then((data) => {
         console.log(data);
         if (data.acknowledged) {
-          toast.info("service added successfull");
+          toast.info("service added successful");
           form.reset();
         }
-      });
+      })
+      .catch((err) => console.log(err));
   };
 
   return (

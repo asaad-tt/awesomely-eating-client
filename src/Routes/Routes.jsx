@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import AddService from "../Components/AddService/AddService";
 import Blog from "../Components/Blog/Blog";
+import Edit from "../Components/Edit/Edit";
 import Home from "../Components/Home/Home/Home";
 import ServiceDetails from "../Components/Home/Services/ServiceDetails";
 import Services from "../Components/Home/Services/Services";
@@ -9,6 +10,7 @@ import MyReviews from "../Components/MyReviews/MyReviews";
 import SignUp from "../Components/SignUp/SignUp";
 
 import Main from "../Layout/Main/Main";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -33,7 +35,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/myReviews",
-        element: <MyReviews></MyReviews>,
+        element: (
+          <PrivateRoute>
+            <MyReviews></MyReviews>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/edit/:id",
+        element: <Edit></Edit>,
       },
       {
         path: "/services",

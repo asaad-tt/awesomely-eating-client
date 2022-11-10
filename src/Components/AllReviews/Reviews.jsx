@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import avatar from "../../asset/avatar/avatar.png";
 
 const Reviews = ({ review }) => {
-  console.log(review);
-  const { email, text, uid, userName, photoURL } = review;
+  // console.log(review);
+  const { serviceId, email, text, uid, userName, photoURL } = review;
+
   return (
     <div>
       <tr>
