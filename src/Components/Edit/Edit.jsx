@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 const Edit = () => {
   const router = useParams();
   const { id } = router;
+  console.log(id);
 
   const [review, setReview] = useState({});
   const navigate = useNavigate();
@@ -23,21 +24,20 @@ const Edit = () => {
     const review = {
       text,
     };
+    console.log(review);
 
     fetch(`http://localhost:5000/myReviews/${id}`, {
       method: "PATCH",
       headers: {
-        "content-types": "application/json()",
+        "content-type": "application/json",
       },
       body: JSON.stringify(review),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.acknowledged) {
-          toast.info("review edited successful");
-          navigate("/myReviews");
-        }
+        toast.info("review edited successful");
+        navigate("/myReviews");
       });
   };
 
