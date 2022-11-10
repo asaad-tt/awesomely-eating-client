@@ -39,7 +39,7 @@ const UserContext = ({ children }) => {
     });
   };
 
-  //   1. google signin
+  //    google signin
   const signInWithGoogle = () => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);

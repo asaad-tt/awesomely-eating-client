@@ -45,7 +45,7 @@ const Edit = () => {
   return (
     <div>
       <div className="max-w-screen-xl mx-auto w-4/6">
-        <h2>Edit your review</h2>
+        <h2 className="text-2xl font-semibold mb-5">Edit your review</h2>
         <form onSubmit={handleEdit}>
           <textarea
             className="textarea textarea-success w-full"
@@ -55,7 +55,7 @@ const Edit = () => {
           ></textarea>
           <input
             type="submit"
-            className="btn btn-primary"
+            className="btn btn-primary mt-5 mb-10"
             value="Edit review"
           />
         </form>

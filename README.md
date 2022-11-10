@@ -1,3 +1,20 @@
+# Project Details:
+
+Project Name : "Awesomely Eating"
+Project Category: Homemade Food Service
+Project Live Link: https://awesomely-eating.web.app/
+
+# Project making description:
+
+** For this Project I use tailwind and its library component daisyUi
+** At first i make some Routes . Also make Private route .
+** In Home Page i Show Header Navbar, Banner section, Service item, About section , Working Process etc..
+** I used header and footer as shared things , which can show in every pages
+** I made server for backend , also i create a database in Mongodb.
+** I stored data in mongodb database and from there i use data as my necessity.
+** I also use react photo view , which make a photo a full screen size after click
+** i make a blog route , there i answered some important Question about database, programming language etc..
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

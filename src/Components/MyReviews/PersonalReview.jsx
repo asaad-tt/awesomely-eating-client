@@ -3,7 +3,7 @@ import React from "react";
 const PersonalReview = ({ singleReview, handleDelete, handleEdit }) => {
   console.log(singleReview);
 
-  const { _id, userName, serviceName, text, serviceImage } = singleReview;
+  const { _id, serviceName, text, serviceImage } = singleReview;
 
   return (
     <div>

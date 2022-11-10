@@ -28,8 +28,6 @@ const ServiceDetails = () => {
       photoURL: user?.photoURL,
     };
 
-    // get review
-
     // create review
     fetch("https://awesomely-eating-server.vercel.app/reviews", {
       method: "POST",
