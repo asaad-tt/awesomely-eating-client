@@ -1,8 +1,10 @@
 .right_menu a {
   margin-right: 10px;
   color: #fff;
+  font-weight: bold;
 }
 
 .menu a {
   color: #fff;
+  font-weight: bold;
 }

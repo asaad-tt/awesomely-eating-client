@@ -20,7 +20,7 @@ const Header = () => {
   };
 
   return (
-    <div className="bg-slate-800">
+    <div className="bg-gradient-to-r from-slate-800 via-purple-500 to-pink-500">
       <div className="navbar max-w-screen-xl mx-auto ">
         <div className="navbar-start">
           <div className="dropdown">

@@ -10,6 +10,12 @@
   background: linear-gradient(
     to right,
     #151515 0%,
-    rgba(21, 21, 21, 0) 100%
+    rgb(142, 68, 173, 0.4)
   ); /* W3C */
 }
+
+/* background: linear-gradient(
+  to right,
+  #151515 0%,
+  rgba(21, 21, 21, 0) 100%
+); W3C */
