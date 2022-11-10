@@ -37,15 +37,17 @@ const MyReviews = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4">
-      {reviews.map((singleReview) => (
-        <PersonalReview
-          key={singleReview._id}
-          singleReview={singleReview}
-          handleDelete={handleDelete}
-          handleEdit={handleEdit}
-        ></PersonalReview>
-      ))}
+    <div className="max-w-screen-xl mx-auto py-10">
+      <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4">
+        {reviews.map((singleReview) => (
+          <PersonalReview
+            key={singleReview._id}
+            singleReview={singleReview}
+            handleDelete={handleDelete}
+            handleEdit={handleEdit}
+          ></PersonalReview>
+        ))}
+      </div>
     </div>
   );
 };

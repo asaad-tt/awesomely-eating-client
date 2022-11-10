@@ -4,10 +4,10 @@ import logo from "../../asset/logo/awesomely-eating-logo.png";
 const Footer = () => {
   return (
     <div>
-      <footer className="footer items-center p-4 bg-neutral text-neutral-content">
+      <footer className="footer items-center p-4 bg-neutral text-neutral-content  ">
         <div className="items-center grid-flow-col">
           <img src={logo} width="200" alt="" />
-          <p>Copyright © 2022 - All right reserved</p>
+          <p className="text-center">Copyright © 2022 - All right reserved</p>
         </div>
         <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
           <a>

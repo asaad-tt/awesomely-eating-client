@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ServiceCard from "./ServiceCard";
+import "./service.css";
 
 const Service = () => {
   const [service, setService] = useState([]);
@@ -11,9 +12,13 @@ const Service = () => {
   }, []);
   return (
     <div className="max-w-screen-xl mx-auto ">
-      <div>
-        <p className="text-2xl font-bold text-violet-600">Services</p>
-        <h3>explore our services items</h3>
+      <div className="pt-10">
+        <p className="text-2xl service_title pb-5 text-center font-bold text-violet-600">
+          Services
+        </p>
+        <h3 className="text-3xl text-center font-semibold pb-5">
+          explore our services items
+        </h3>
       </div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {service.map((homeService) => (

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const ServiceCard = ({ homeService }) => {
   const { _id, title, img, price, description } = homeService;
   return (
-    <div>
+    <div className="max-w-screen-xl mx-auto ">
       <div className="card card-compact w-96 bg-base-100 shadow-xl">
         <figure>
           <img src={img} alt="Shoes" />
