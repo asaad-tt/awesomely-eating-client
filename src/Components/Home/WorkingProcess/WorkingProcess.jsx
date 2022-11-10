@@ -7,7 +7,9 @@ import rating from "../../../asset/delivery/ratingGuy.svg";
 const WorkingProcess = () => {
   return (
     <div className="py-10">
-      <h3 className="text-3xl text-center py-10">How it Works </h3>
+      <h3 className="text-3xl font-semibold text-center py-10">
+        How it Works!!{" "}
+      </h3>
       <div className="grid gap-5  grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-screen-xl mx-auto">
         <div className="border-2 p-5 border-indigo-600 rounded">
           <div className="flex justify-center">
